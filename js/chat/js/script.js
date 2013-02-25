@@ -106,22 +106,24 @@ var chat = {
 
 		// Logging the user out:
 
-			// $('a.logoutButton').live('click', function() {
-			$(document).on('click', 'a.logoutButton', function() { // YY. 'live' removed from 1.9
-				// alert('logging out');
+		// $('a.logoutButton').live('click', function() {
+		$(document).on('click', 'a.logoutButton', function() { // YY. 'live'
+			// removed from
+			// 1.9
+			// alert('logging out');
 
-				$('#chatTopBar > span').fadeOut(function() {
-					$(this).remove();
-				});
-
-				$('#submitForm').fadeOut(function() {
-					$('#loginForm').fadeIn();
-				});
-
-				$.tzPOST('logout');
-
-				return false;
+			$('#chatTopBar > span').fadeOut(function() {
+				$(this).remove();
 			});
+
+			$('#submitForm').fadeOut(function() {
+				$('#loginForm').fadeIn();
+			});
+
+			$.tzPOST('logout');
+
+			return false;
+		});
 
 		// Checking whether the user is already logged (browser refresh)
 
@@ -186,9 +188,8 @@ var chat = {
 			break;
 
 		case 'user':
-			arr = [ '<div class="user" title="', params.name, '"><img src="',
-					params.gravatar,
-					'" width="30" height="30" onload="this.style.visibility=\'visible\'" /></div>' ];
+			//arr = ['<div class="user" title="',params.name,'"><img src="',	params.gravatar,'" width="30" height="30" onload="this.style.visibility=\'visible\'" /></div>'];
+			arr = ['<div class="user1" title="',params.name,'">',params.name,'</div>'];
 			break;
 		}
 
@@ -357,12 +358,18 @@ var chat = {
 
 $.tzPOST = function(action, data, callback) {
 	// $.post('php/ajax.php?action='+action,data,callback,'json');
-	$.post(chat.data.absurl + '/?action=' + action, data, callback, 'json');
+	$.post(chat.data.absurl + '/?action=' + action, data, callback, 'json'); // YY
+	// use
+	// abs
+	// url
 }
 
 $.tzGET = function(action, data, callback) {
 	// $.get('php/ajax.php?action=' + action, data, callback, 'json');
-	$.get(chat.data.absurl + '/?action=' + action, data, callback, 'json');
+	$.get(chat.data.absurl + '/?action=' + action, data, callback, 'json'); // YY
+	// use
+	// abs
+	// url
 }
 
 // A custom jQuery method for placeholder text:

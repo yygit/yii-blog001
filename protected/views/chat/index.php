@@ -26,8 +26,8 @@ $this->widget('ChatWidget', array('data'=>'this is a test string from chatWidget
 		<div class="tip"></div>
 
 		<form id="loginForm" method="post" action="">
-			<input id="name" name="name" class="rounded" maxlength="16" /> <input
-				id="email" name="email" class="rounded" /> <input type="submit"
+			<input id="name" name="name" class="rounded" maxlength="16" style="width:80%;"/> <input
+				id="email" name="email" class="rounded" style="display:none;"/> <input type="submit"
 				class="blueButton" value="Login" />
 		</form>
 
@@ -41,4 +41,4 @@ $this->widget('ChatWidget', array('data'=>'this is a test string from chatWidget
 </div>
 
 <!-- YY absolute URL for script.js -->
-<div id="absurl" style="display:none;"><?php echo $this->createAbsoluteUrl('chat/ajaxchat');?></div>
+<div id="absurl" style="display:none;"><?php echo Yii::app()->createAbsoluteUrl('chat/ajaxchat');?></div>

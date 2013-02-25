@@ -16,6 +16,12 @@ class ChatUser extends ChatBase{
 		return DB::getMySQLiObject();
 	}
 	
+	/* YY; Feb 25, 2013 12:00:03 PM;  */
+	public function checkname(){		
+		DB::query("select * from webchat_users where `name`='".DB::esc($this->name)."'");		
+		return DB::getMySQLiObject();
+	}
+	
 	public function update(){
 		DB::query("
 			INSERT INTO webchat_users (name, gravatar)

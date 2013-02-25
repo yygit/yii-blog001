@@ -4,7 +4,7 @@
 
 class Chat{
 	
-	public static function login($name,$email){
+	public static function login_bak($name,$email){ // YY; backing original func
 		if(!$name || !$email){
 			throw new Exception('Fill in all the required fields.');
 		}
@@ -23,6 +23,41 @@ class Chat{
 		
 		// The save method returns a MySQLi object
 		if($user->save()->affected_rows != 1){
+			throw new Exception('This nick is in use.');
+		}
+		
+		$_SESSION['user']	= array(
+			'name'		=> $name,
+			'gravatar'	=> $gravatar
+		);
+		
+		return array(
+			'status'	=> 1,
+			'name'		=> $name,
+			'gravatar'	=> Chat::gravatarFromHash($gravatar)
+		);
+	}
+
+	public static function login($name,$email=NULL){
+		if(!$name){
+			throw new Exception('Fill in the name.');
+		}
+		
+		/* YY. add random number to Guest name */
+		if (strtolower($name) == strtolower(Yii::app()->user->guestName)) {
+			$name .= rand(100, 999);
+		}
+		
+		// Preparing the gravatar hash:
+		$gravatar = md5(strtolower(trim($name)));
+		
+		$user = new ChatUser(array(
+			'name'		=> $name,
+			'gravatar'	=> $gravatar
+		));
+		
+		// check if name already exists, except for Guests
+		if( ($user->checkname()->affected_rows > 0) AND (strtolower($name) != strtolower(Yii::app()->user->guestName)) ){
 			throw new Exception('This nick is in use.');
 		}
 		
