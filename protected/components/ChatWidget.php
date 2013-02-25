@@ -9,7 +9,6 @@ class ChatWidget extends CWidget {
 
     public function run()     {
         $this->render('chatWidget', array('data'=>$this->data));
-        // $this->render('chatWidget');
     }
 }
 
