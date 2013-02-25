@@ -21,8 +21,11 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/c
 ?>
 
 <div id="chatContainer" style="position: absolute;">
-	<div id="left_chat" style="float: left; display: block; width: 22px; background-color:grey; overflow: hidden;"></div>
-	<div id="center_chat" style="float: left; display: block; position: relative; background-color: white; width: 90%;">
+	<div id="left_chat" style="float: left; display: block; width: 22px; background-image: url('<?php echo Yii::app()->request->baseUrl; ?>/css/chat/img/left-close.png'); 
+		background-repeat: no-repeat;
+		overflow: hidden;"></div>
+	<div id="center_chat"
+		style="float: left; display: block; position: relative; background-color: white; width: 95%;">
 		<div id="chatTopBar" class="rounded"></div>
 		<div id="chatLineHolder"></div>
 
@@ -44,8 +47,9 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/c
 
 		</div>
 	</div>
-	<div id="right_chat" style="float: left; display: block; width: 22px; background-color:grey; overflow: hidden;"></div>
-	<div id="right_chat2" style="float: right; display: none; width: 22px; background-color:grey; overflow: hidden;"></div>
+	<!--  	<div id="right_chat" style="float: left; display: block; width: 22px; background-image: url('<?php echo Yii::app()->request->baseUrl; ?>/css/chat/img/right-open.png'); background-repeat: no-repeat; overflow: hidden;"></div> 	  -->
+	<div id="right_chat2"
+		style="float: right; display: none; width: 22px; background-image: url('<?php echo Yii::app()->request->baseUrl; ?>/css/chat/img/right-open.png'); background-repeat: no-repeat;  overflow: hidden;"></div>
 	<div style="clear: both;"></div>
 
 
@@ -53,10 +57,16 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/c
 </div>
 
 <!-- YY absolute URL for script.js -->
-<div id="absurl" style="display: none;"><?php echo Yii::app()->createAbsoluteUrl('chat/ajaxchat');?></div>
+<div id="absurl" style="display: none;">
+	<?php echo Yii::app()->createAbsoluteUrl('chat/ajaxchat');?>
+</div>
 
 <!-- YY chat Name for script.js -->
-<div id="chatname" style="display: none;"><?php echo Yii::app()->user->name;?></div>
+<div id="chatname" style="display: none;">
+	<?php echo Yii::app()->user->name;?>
+</div>
 
 <!-- YY guest Name for script.js -->
-<div id="isguest" style="display: none;"><?php echo Yii::app()->user->isGUest;?></div>
+<div id="isguest" style="display: none;">
+	<?php echo Yii::app()->user->isGUest;?>
+</div>
