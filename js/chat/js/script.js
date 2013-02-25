@@ -12,8 +12,10 @@ var chat = {
 	data : {
 		lastID : 0,
 		noActivity : 0,
-		absurl : $('#absurl').text()
-	// YY; Feb 25, 2013 10:23:36 AM; absolute URL for Ajax Post and Get
+		absurl : $.trim( $('#absurl').text() ), 			// YY; absolute URL for Ajax Post and Get
+		chatname : $.trim( $('#chatname').text() ), 		// YY; yii user Name for Ajax Post and Get
+		guestname : $.trim( $('#guestname').text() ) 		// YY; yii guestName for Ajax Post and Get
+
 	},
 
 	// Init binds event listeners and sets up timers:
@@ -21,7 +23,8 @@ var chat = {
 	init : function() {
 
 		// Using the defaultText jQuery plugin, included at the bottom:
-		$('#name').defaultText('Nickname');
+		// $('#name').defaultText('Nickname');
+		$('#name').defaultText(chat.data.chatname);
 		$('#email').defaultText('Email (Gravatars are Enabled)');
 
 		// Converting the #chatLineHolder div into a jScrollPane,
@@ -107,9 +110,7 @@ var chat = {
 		// Logging the user out:
 
 		// $('a.logoutButton').live('click', function() {
-		$(document).on('click', 'a.logoutButton', function() { // YY. 'live'
-			// removed from
-			// 1.9
+		$(document).on('click', 'a.logoutButton', function() { // YY. 'live' removed from ver 1.9
 			// alert('logging out');
 
 			$('#chatTopBar > span').fadeOut(function() {
@@ -126,7 +127,7 @@ var chat = {
 		});
 
 		// Checking whether the user is already logged (browser refresh)
-
+		
 		$.tzGET('checkLogged', function(r) {
 			if (r.logged) {
 				chat.login(r.loggedAs.name, r.loggedAs.gravatar);
@@ -184,6 +185,7 @@ var chat = {
 					'" width="23" height="23" onload="this.style.visibility=\'visible\'" />',
 					'</span><span class="author">', params.author,
 					':</span><span class="text">', params.text,
+					'</span><span class="date">', params.date, 
 					'</span><span class="time">', params.time, '</span></div>' ];
 			break;
 
@@ -248,7 +250,7 @@ var chat = {
 
 		chat.data.jspAPI.reinitialise();
 		chat.data.jspAPI.scrollToBottom(true);
-
+		
 	},
 
 	// This method requests the latest chats
@@ -299,6 +301,10 @@ var chat = {
 			}
 
 			setTimeout(callback, nextRequest);
+			
+			/*YY remove all except the last N msgs */
+			 $('.jspPane').children().slice(-15).first().prevAll().remove();
+			
 		});
 	},
 

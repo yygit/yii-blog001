@@ -59,7 +59,9 @@ return array(
 										'levels'=>'error, warning',
 								),
 								// uncomment the following to show log messages on web pages
-								/* array('class'=>'CWebLogRoute',),*/
+								/* array(
+										'class'=>'CWebLogRoute',
+								), */
 						),
 				),
 		),
@@ -68,10 +70,10 @@ return array(
 		// using Yii::app()->params['paramName']
 		'params'=>require(dirname(__FILE__).'/params.php'),
 
-		/* 'modules'=>array(				
-				'messaging'=>array(
-						'class'=>'ext.messaging.MessagingModule',
-						'userModel'=>'User',
-				),
+		/* 'modules'=>array(
+		 'messaging'=>array(
+		 		'class'=>'ext.messaging.MessagingModule',
+		 		'userModel'=>'User',
+		 ),
 		), */
 );

@@ -44,14 +44,16 @@
 							array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					),
 			)); ?>
-		</div>
-		<!-- mainmenu -->
+		</div> 	<!-- mainmenu -->
 
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 				'links'=>$this->breadcrumbs,
-		)); ?>
-		<!-- breadcrumbs -->
+		)); ?> <!-- breadcrumbs -->
 
+		
+		<!-- YY add chat widget to every page using main.php layout-->
+		<?php $this->widget('ChatWidget', array('data'=>'')); ?>
+		
 		<?php echo $content; ?>
 
 		<div id="footer">
@@ -72,11 +74,11 @@
 /* YY; Feb 24, 2013 5:09:50 PM;  register jQuery v1.9.1 instead of the Core ver. 1.7 */
 $cs = Yii::app()->clientScript;
 $cs->scriptMap = array(
-		'jquery.js' => Yii::app()->request->baseUrl.'/js/jquery.js',
-		'jquery.min.js' => Yii::app()->request->baseUrl.'/js/jquery.min.js'
+// 		'jquery.js' => Yii::app()->request->baseUrl.'/js/jquery.js',
+// 		'jquery.min.js' => Yii::app()->request->baseUrl.'/js/jquery.min.js'
 );
-$cs->registerCoreScript('jquery.js');
-$cs->registerCoreScript('jquery.min.js'); 
-// var_dump($this->getRoute());
+// $cs->registerCoreScript('jquery.js');
+// $cs->registerCoreScript('jquery.min.js'); 
+
 // var_dump($cs->corePackages);
 // var_dump($cs->packages);

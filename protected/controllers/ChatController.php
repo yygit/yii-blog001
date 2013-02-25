@@ -4,6 +4,8 @@ class ChatController extends Controller {
 	public $layout='column1';
 	private $dbOptions=array();
 
+	private $_connection;
+
 	/**
 	 * @return array action filters
 	 */
@@ -44,8 +46,6 @@ class ChatController extends Controller {
 		// 		$absurl = $this->createAbsoluteUrl($this->getRoute());
 		$absurl = $this->createAbsoluteUrl('chat/ajaxchat');
 		$this->render('index2', array('get'=>$absurl));
-		
-		// 		$this->render('index2', array('get'=>$_GET));
 	}
 
 	public function actionAjaxchat() 	{
@@ -124,7 +124,7 @@ class ChatController extends Controller {
 
 
 
-
+		/* YY; do not render, this is to serve Ajax requests	 */
 		// 		$this->render('index', array('user'=>$user));
 	}
 

@@ -1,9 +1,17 @@
 /* Main chat container */
 
 #chatContainer{
-	width:510px;
-	margin:100px auto;
-	position:relative;
+	width:560px;
+	margin:10px auto;
+	/* position:relative; */
+	
+	/* YY */
+	/* background-color: white; */
+	position: absolute;
+    top: 140px;
+    
+    /* @TODO: YY; calculate dynamically  - DONE */
+    /* right: 190px; */ 
 }
 
 
@@ -91,7 +99,13 @@
 .chat .time{
 	position:absolute;
 	right:10px;
-	top:12px;
+	top:20px;
+	font-size:11px;
+}
+.chat .date{
+	position:absolute;
+	right:10px;
+	top:2px;
 	font-size:11px;
 }
 

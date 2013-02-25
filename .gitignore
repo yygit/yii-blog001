@@ -5,9 +5,9 @@
 *.gz
 *.gzip
 *.pdf
-*.jpg
-*.png
-*.gif
+# *.jpg
+# *.png
+# *.gif
 *.psd
 *.log
 *.db
