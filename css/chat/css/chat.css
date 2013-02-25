@@ -105,8 +105,8 @@
 
 
 #chatUsers{
-	background-color:#202020;
-	border:1px solid #111111;
+	/* background-color:#202020; */
+	/* border:1px solid #111111; */
 	height:360px;
 	position:absolute;
 	right:0;

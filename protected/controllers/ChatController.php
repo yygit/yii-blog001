@@ -41,7 +41,11 @@ class ChatController extends Controller {
 	}
 
 	public function actionIndex2() 	{
-		$this->render('index2', array('get'=>$_GET));
+		// 		$absurl = $this->createAbsoluteUrl($this->getRoute());
+		$absurl = $this->createAbsoluteUrl('chat/ajaxchat');
+		$this->render('index2', array('get'=>$absurl));
+		
+		// 		$this->render('index2', array('get'=>$_GET));
 	}
 
 	public function actionAjaxchat() 	{
@@ -112,6 +116,7 @@ class ChatController extends Controller {
 			}
 
 			echo json_encode($response);
+			// 			exit(json_encode($response));
 		}
 		catch(Exception $e){
 			die(json_encode(array('error' => $e->getMessage())));
@@ -120,7 +125,7 @@ class ChatController extends Controller {
 
 
 
-		$this->render('index', array('user'=>$user));
+		// 		$this->render('index', array('user'=>$user));
 	}
 
 

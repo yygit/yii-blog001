@@ -11,7 +11,9 @@ var chat = {
 
 	data : {
 		lastID : 0,
-		noActivity : 0
+		noActivity : 0,
+		absurl : $('#absurl').text()
+	// YY; Feb 25, 2013 10:23:36 AM; absolute URL for Ajax Post and Get
 	},
 
 	// Init binds event listeners and sets up timers:
@@ -104,9 +106,9 @@ var chat = {
 
 		// Logging the user out:
 
-		if (($('a.logoutButton').html() != null)
-				&& ($('a.logoutButton').html() != '')) {
-			$('a.logoutButton').live('click', function() {
+			// $('a.logoutButton').live('click', function() {
+			$(document).on('click', 'a.logoutButton', function() { // YY. 'live' removed from 1.9
+				// alert('logging out');
 
 				$('#chatTopBar > span').fadeOut(function() {
 					$(this).remove();
@@ -120,7 +122,6 @@ var chat = {
 
 				return false;
 			});
-		}
 
 		// Checking whether the user is already logged (browser refresh)
 
@@ -356,12 +357,12 @@ var chat = {
 
 $.tzPOST = function(action, data, callback) {
 	// $.post('php/ajax.php?action='+action,data,callback,'json');
-	$.post('chat/ajaxchat/?action=' + action, data, callback, 'json');
+	$.post(chat.data.absurl + '/?action=' + action, data, callback, 'json');
 }
 
 $.tzGET = function(action, data, callback) {
 	// $.get('php/ajax.php?action=' + action, data, callback, 'json');
-	$.get('chat/ajaxchat/?action=' + action, data, callback, 'json');
+	$.get(chat.data.absurl + '/?action=' + action, data, callback, 'json');
 }
 
 // A custom jQuery method for placeholder text:
