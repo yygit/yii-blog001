@@ -73,9 +73,9 @@ class Chat{
 		);
 	}
 
-	/*  YY; check if chat tables exist, if not, create schema */
+	/*  YY; check if chat tables exist, if not, create schema (structure) */
 	public static function checkChatTables(){
-		$webchat_lines_exists = Yii::app()->db->schema->getTable('webchat_lines');
+		$webchat_lines_exists = Yii::app()->db->getSchema()->getTable('webchat_lines');
 		if(!$webchat_lines_exists){
 			$command = Yii::app()->db->createCommand('CREATE TABLE `webchat_lines` (
 					`id` int(10) unsigned NOT NULL auto_increment,
@@ -88,7 +88,7 @@ class Chat{
 			) ENGINE=MyISAM  DEFAULT CHARSET=utf8;')->execute();
 		}
 		
-		$webchat_users_exists = Yii::app()->db->schema->getTable('webchat_users');
+		$webchat_users_exists = Yii::app()->db->getSchema()->getTable('webchat_users');
 		if(!$webchat_users_exists){
 			$command2 = Yii::app()->db->createCommand('CREATE TABLE `webchat_users` (
 					`id` int(10) unsigned NOT NULL auto_increment,
@@ -198,6 +198,7 @@ class Chat{
 
 			$chat->gravatar = Chat::gravatarFromHash($chat->gravatar);
 
+			/* YY; */
 			$chat->date = gmdate('j-M-Y',strtotime($chat->ts));
 
 			$chats[] = $chat;

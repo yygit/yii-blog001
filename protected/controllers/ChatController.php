@@ -61,12 +61,7 @@ class ChatController extends Controller {
 
 		error_reporting(E_ALL ^ E_NOTICE);
 
-		/* 		require "classes/DB.class.php";
-		 require "classes/Chat.class.php";
-		require "classes/ChatBase.class.php";
-		require "classes/ChatLine.class.php";
-		require "classes/ChatUser.class.php";
-		*/
+		/* 		require "clas ses/DB.class.php";		 require "classes/Chat.class.php"; 		 require "classes/ChatBase.class.php"; 		require "classes/ChatLine.class.php"; 		require "classes/ChatUser.class.php"; 		*/
 		session_name('webchat');
 		session_start();
 

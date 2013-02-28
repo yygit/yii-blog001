@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 	 * YY; get the height of the chat container and make left and right DIVs of
 	 * the same height
 	 */
-	CC_h = $('#chatContainer').outerHeight();
+	var CC_h = $('#chatContainer').outerHeight();
 	$('#left_chat').css('height', CC_h + 'px');
 	$('#right_chat').css('height', CC_h + 'px');
 	$('#right_chat2').css('height', CC_h + 'px');
@@ -71,6 +71,6 @@ jQuery(document).ready(function() {
 	}
 	/* if logged, fade out the login form; if not logged, login as Guest or Username */
 	isLogged();
-	
 
+	
 });

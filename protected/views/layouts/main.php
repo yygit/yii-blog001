@@ -51,7 +51,7 @@
 		)); ?> <!-- breadcrumbs -->
 
 		
-		<!-- YY add chat widget to every page using main.php layout-->
+		<!-- YY; add chat widget to every page using main.php layout-->
 		<?php $this->widget('ChatWidget', array('data'=>'')); ?>
 		
 		<?php echo $content; ?>
