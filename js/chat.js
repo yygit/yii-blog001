@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
 	
 	body_w = $('body').width();
 	container_w = $('body div.container').width();
-	$('body div.#chatContainer').css('right',(body_w-container_w)/2 - 0 + 'px');
+	$('body div#chatContainer').css('right',(body_w-container_w)/2 - 0 + 'px');
 	
 
 	/* open or close chat window DIVs */
